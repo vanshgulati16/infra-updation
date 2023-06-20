@@ -1,0 +1,73 @@
+{
+    "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:936066658209:loadbalancer/app/ecs-blue-green-load-balancer/150c5318aae92e64",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:936066658209:task-definition/ecs-blue-green-latest:4",
+    "containerDefinitions": [
+        {
+            "name": "ecs-blue-green-latest-container",
+            "image": "936066658209.dkr.ecr.us-east-1.amazonaws.com/new-microservice:latest",
+            "cpu": 256,
+            "memory": 512,
+            "portMappings": [
+                {
+                    "containerPort": 8081,
+                    "hostPort": 8081,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/ecs-blue-green-task-defination",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "ecs-blue-green-latest",
+    "taskRoleArn": "arn:aws:iam::936066658209:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::936066658209:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 5,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-06-19T15:55:38.071Z",
+    "registeredBy": "arn:aws:iam::936066658209:root",
+    "tags": []
+}
